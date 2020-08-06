@@ -1,0 +1,46 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Employees Information</h1>
+    <p class="lead">
+      This is the information about our employees.
+    </p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <label for="txtKeyWords">Filter by employee names</label>
+      <input
+        class="form-control"
+        id="txtKeyWords"
+        type="text"
+        (keyup.enter)="getEmployeeByName($event)"
+      />
+    </div>
+  </div>
+  <br />
+  <div class="row">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Names</th>
+          <th scope="col">Surnames</th>
+          <th scope="col">Contract Type</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Annual Salary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of allEmployees">
+          <th scope="row">{{ employee.employeeId }}</th>
+          <td>{{ employee.name }}</td>
+          <td>{{ employee.surname }}</td>
+          <td>{{ employee.contractType }}</td>
+          <td>{{ employee.amount | currency }}</td>
+          <td>{{ employee.annualSalary | currency }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
